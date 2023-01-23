@@ -41,17 +41,15 @@ namespace Signtex
             try
             {
                 //dialog.Filter = "Im files (*.jpg;*.png;*.jpeg;*.bmp;) | *.jpg;*.png;*.jpeg;*.bmp; | All Files (*.*) | *.*;";
-                OpenFileDialog dialog = new OpenFileDialog();
-                if (dialog.ShowDialog() == DialogResult.OK)
-                {
+                
                     Mat frame = new Mat();
-                    capture = new VideoCapture(dialog.FileName);
+                    capture = new VideoCapture(0);
                     capture.Retrieve(frame);
                     net.SetPreferableBackend(Emgu.CV.Dnn.Backend.OpenCV);
 
                     Application.Idle += Application_Idle;
 
-                }
+                
             }
             catch (Exception ex)
             {
